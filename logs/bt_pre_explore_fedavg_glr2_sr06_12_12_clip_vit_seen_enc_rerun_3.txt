@@ -1,0 +1,642 @@
+iter 159345, train , nav_error: 0.6059, oracle_error: 0.4771, steps: 26.0596, lengths: 10.1837, cls: 0.9210, ndtw: 0.8708, sdtw: 0.8523, success_rate: 0.9486, oracle_rate: 0.9623, spl: 0.9294, val_seen , nav_error: 3.9687, oracle_error: 2.5645, steps: 34.6699, lengths: 13.1773, cls: 0.6820, ndtw: 0.5728, sdtw: 0.4809, success_rate: 0.6259, oracle_rate: 0.6983, spl: 0.5838, val_unseen , nav_error: 4.6772, oracle_error: 2.9201, steps: 42.7420, lengths: 15.5765, cls: 0.6022, ndtw: 0.4687, sdtw: 0.3846, success_rate: 0.5653, oracle_rate: 0.6556, spl: 0.5027
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345, train , nav_error: 0.6059, oracle_error: 0.4771, steps: 26.0596, lengths: 10.1837, cls: 0.9210, ndtw: 0.8708, sdtw: 0.8523, success_rate: 0.9486, oracle_rate: 0.9623, spl: 0.9294, val_seen , nav_error: 3.9687, oracle_error: 2.5645, steps: 34.6699, lengths: 13.1773, cls: 0.6820, ndtw: 0.5728, sdtw: 0.4809, success_rate: 0.6259, oracle_rate: 0.6983, spl: 0.5838, val_unseen , nav_error: 4.6772, oracle_error: 2.9201, steps: 42.7420, lengths: 15.5765, cls: 0.6022, ndtw: 0.4687, sdtw: 0.3846, success_rate: 0.5653, oracle_rate: 0.6556, spl: 0.5027
+BEST RESULT TILL NOW: val_unseen | Iter 159345 iter 159345, train , nav_error: 0.6059, oracle_error: 0.4771, steps: 26.0596, lengths: 10.1837, cls: 0.9210, ndtw: 0.8708, sdtw: 0.8523, success_rate: 0.9486, oracle_rate: 0.9623, spl: 0.9294, val_seen , nav_error: 3.9687, oracle_error: 2.5645, steps: 34.6699, lengths: 13.1773, cls: 0.6820, ndtw: 0.5728, sdtw: 0.4809, success_rate: 0.6259, oracle_rate: 0.6983, spl: 0.5838, val_unseen , nav_error: 4.6772, oracle_error: 2.9201, steps: 42.7420, lengths: 15.5765, cls: 0.6022, ndtw: 0.4687, sdtw: 0.3846, success_rate: 0.5653, oracle_rate: 0.6556, spl: 0.5027
+iter 159575, train , nav_error: 0.6981, oracle_error: 0.5582, steps: 26.2719, lengths: 10.2281, cls: 0.9124, ndtw: 0.8586, sdtw: 0.8379, success_rate: 0.9400, oracle_rate: 0.9536, spl: 0.9200, val_seen , nav_error: 4.0650, oracle_error: 2.6566, steps: 35.5416, lengths: 13.7012, cls: 0.6781, ndtw: 0.5677, sdtw: 0.4774, success_rate: 0.6170, oracle_rate: 0.6934, spl: 0.5810, val_unseen , nav_error: 4.9205, oracle_error: 3.0981, steps: 43.6501, lengths: 16.0481, cls: 0.5917, ndtw: 0.4624, sdtw: 0.3763, success_rate: 0.5449, oracle_rate: 0.6266, spl: 0.4907
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345, train , nav_error: 0.6059, oracle_error: 0.4771, steps: 26.0596, lengths: 10.1837, cls: 0.9210, ndtw: 0.8708, sdtw: 0.8523, success_rate: 0.9486, oracle_rate: 0.9623, spl: 0.9294, val_seen , nav_error: 3.9687, oracle_error: 2.5645, steps: 34.6699, lengths: 13.1773, cls: 0.6820, ndtw: 0.5728, sdtw: 0.4809, success_rate: 0.6259, oracle_rate: 0.6983, spl: 0.5838, val_unseen , nav_error: 4.6772, oracle_error: 2.9201, steps: 42.7420, lengths: 15.5765, cls: 0.6022, ndtw: 0.4687, sdtw: 0.3846, success_rate: 0.5653, oracle_rate: 0.6556, spl: 0.5027
+BEST RESULT TILL NOW: val_unseen | Iter 159345 iter 159345, train , nav_error: 0.6059, oracle_error: 0.4771, steps: 26.0596, lengths: 10.1837, cls: 0.9210, ndtw: 0.8708, sdtw: 0.8523, success_rate: 0.9486, oracle_rate: 0.9623, spl: 0.9294, val_seen , nav_error: 3.9687, oracle_error: 2.5645, steps: 34.6699, lengths: 13.1773, cls: 0.6820, ndtw: 0.5728, sdtw: 0.4809, success_rate: 0.6259, oracle_rate: 0.6983, spl: 0.5838, val_unseen , nav_error: 4.6772, oracle_error: 2.9201, steps: 42.7420, lengths: 15.5765, cls: 0.6022, ndtw: 0.4687, sdtw: 0.3846, success_rate: 0.5653, oracle_rate: 0.6556, spl: 0.5027
+iter 159345
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 159345 iter 159345
+iter 159475
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 159475 iter 159475
+iter 159641
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 159641 iter 159641
+iter 159890
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 159890 iter 159890
+iter 160020
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 160020 iter 160020
+iter 160179
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 160179 iter 160179
+iter 160323
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 160323 iter 160323
+iter 160465
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 160323 iter 160323
+iter 160623
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 160623 iter 160623
+iter 160852
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 160852 iter 160852
+iter 161099
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 161099 iter 161099
+iter 161261
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 161261 iter 161261
+iter 161417
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 161417 iter 161417
+iter 161653
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 161653 iter 161653
+iter 161786
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 161653 iter 161653
+iter 162062
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 161653 iter 161653
+iter 162241
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 161653 iter 161653
+iter 162505
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 162505 iter 162505
+iter 162675
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 162675 iter 162675
+iter 162820
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 162820 iter 162820
+iter 162983
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 162983 iter 162983
+iter 163236
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 162983 iter 162983
+iter 163407
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 162983 iter 162983
+iter 163646
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163646 iter 163646
+iter 163820
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163820 iter 163820
+iter 163984
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 164190
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 164355
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 164620
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 164792
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 165028
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 165217
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 165448
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 163984 iter 163984
+iter 165669
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 165669 iter 165669
+iter 165931
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 165669 iter 165669
+iter 166077
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166077 iter 166077
+iter 166216
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166216 iter 166216
+iter 166439
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166439 iter 166439
+iter 166703
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166439 iter 166439
+iter 166964
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166439 iter 166439
+iter 167107
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166439 iter 166439
+iter 167282
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166439 iter 166439
+iter 167460
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 166439 iter 166439
+iter 167750
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 167750 iter 167750
+iter 168024
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 167750 iter 167750
+iter 168187
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 167750 iter 167750
+iter 168349
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 167750 iter 167750
+iter 168597
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168597 iter 168597
+iter 168769
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168769 iter 168769
+iter 168962
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 169230
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 169385
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 169654
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 169791
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 170059
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 170256
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 170509
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 170758
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 171034
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 171199
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 171472
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 171636
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 168962 iter 168962
+iter 171886
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 172107
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 172240
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 172413
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 172566
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 172788
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 173012
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 173253
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 173459
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 173601
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 173721
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 174008
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 174253
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 174472
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 174744
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 174911
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 175089
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 175317
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 175557
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 175742
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 175957
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 176134
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 171886 iter 171886
+iter 176319
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 176597
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 176740
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 176918
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 177112
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 177377
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 177599
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 177829
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 178082
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 178346
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 178587
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 178840
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 179096
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 179250
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 179483
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 179711
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 179936
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 180198
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 180453
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 180615
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 180785
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 180967
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 181242
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 181439
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 181700
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 181871
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 182048
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 182231
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 182473
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 182694
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 182959
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 183147
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 183404
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 183658
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 183834
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 184080
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 184206
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 184361
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 184528
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 184793
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 184929
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 185214
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 185370
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 185612
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 185832
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 185974
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 186151
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 186422
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 186656
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 186916
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 187122
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 187393
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 187672
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 187875
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 188068
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 188307
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 188563
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 188750
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 188996
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 189226
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 189398
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 189677
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 189920
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 190219
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 190432
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 190568
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 190699
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 190857
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 190994
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 191119
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 191301
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 191534
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 191756
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 192001
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 192269
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 192487
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 192658
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 192791
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 192959
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 193224
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 193450
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 193677
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 193931
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 194148
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 194391
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 194618
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 194820
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 195029
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 195279
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 195494
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 195714
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 195855
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 196101
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 196324
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 196578
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 196830
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 197010
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 197179
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 197381
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 197515
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 197743
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 197916
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 198068
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 198312
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 198580
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 198739
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 198900
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 199141
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 199429
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 199570
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 199767
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 200008
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 200274
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 200467
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 200727
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 200985
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 201122
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 201357
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 201518
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 201757
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 201988
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 202156
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 202390
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 202557
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 202698
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 202838
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 203136
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
+iter 203388
+BEST RESULT TILL NOW: val_seen | Iter 159345 iter 159345
+BEST RESULT TILL NOW: val_unseen | Iter 176319 iter 176319
