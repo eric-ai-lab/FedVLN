@@ -1,12 +1,14 @@
-name=bt_pre_explore_fedavg_glr2_aug_unseen_enc_2_3
+name=bt_pre_explore_fedavg_glr2_sr06_12_12_clip_vit_unseen_enc
 # aug: the augmented paths, only the paths are used (not the insts)
 # speaker: load the speaker from
 # load: load the agent from
 flag="--attn soft --train auglistener --selfTrain
       --aug tasks/R2R/data/aug_paths_unseenvalid.json
-      --load snap/agent_bt_fedavg-glr2-3_26_new/state_dict/best_val_unseen
-      --speaker snap/speaker-fed-lr35_new/state_dict/best_val_unseen_bleu
+      --load snap/agent_bt_clip_vit_fedavg_12_12/state_dict/best_val_unseen
+      --speaker snap/speaker_clip_vit_fedavg/state_dict/best_val_unseen_bleu
+      --features img_features/CLIP-ViT-B-32-views.tsv
       --angleFeatSize 128
+      --feature_size 512
       --accumulateGrad
       --featdropout 0.4
       --pre_explore True
@@ -22,10 +24,4 @@ flag="--attn soft --train auglistener --selfTrain
       "
 mkdir -p snap/$name
 
-CUDA_VISIBLE_DEVICES=0 python3 r2r_src/train.py $flag --name $name
-
-#--sample_fraction 0.3
-#--unseen_only True
-#--speaker snap/speaker-fed-lr25/state_dict/best_val_unseen_bleu
-# --load snap/agent_bt_fedavg-glr2-3_26/state_dict/best_val_unseen
-# bt_pre_explore_fedavg_glr2_aug_sr1_seen_2_3_sr06_rerun
+CUDA_VISIBLE_DEVICES=3 python3 r2r_src/train.py $flag --name $name
