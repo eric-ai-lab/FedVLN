@@ -1,6 +1,6 @@
 # FedVLN
 
-In our paper "[FedVLN: Privacy-preserving Federated Vision-and-Language Navigation](https://arxiv.org/abs/2203.14936)", we study the privacy problem of embodied agent and proposed a Federated Vision-and-Language Navigation algorithm for seen environment training and unseen environment pre-exploration. We achieved comparable results on seen environmen training with centralized training and improved over both centralized pre-exploration and environment-based pre-exploration. 
+In our ECCV 2022 paper "[FedVLN: Privacy-preserving Federated Vision-and-Language Navigation](https://arxiv.org/abs/2203.14936)", we study the privacy problem of embodied agent and proposed a Federated Vision-and-Language Navigation algorithm for seen environment training and unseen environment pre-exploration. We achieved comparable results on seen environmen training with centralized training and improved over both centralized pre-exploration and environment-based pre-exploration. 
 
 We release the reproducible code here.
 
@@ -39,7 +39,7 @@ unzip ResNet-152-imagenet.zip
 
 ### CLIP Features
 Please download the CLIP-ViT features with this link:
-```shell
+```
 wget https://nlp.cs.unc.edu/data/vln_clip/features/CLIP-ViT-B-32-views.tsv -P img_features
 ```
 
@@ -47,7 +47,7 @@ wget https://nlp.cs.unc.edu/data/vln_clip/features/CLIP-ViT-B-32-views.tsv -P im
 
 ### Data
 Please download the pre-processed data with link:
-```shell
+```
 wget https://nlp.cs.unc.edu/data/vln_clip/RxR.zip -P tasks
 unzip tasks/RxR.zip -d tasks/
 ```
@@ -55,7 +55,7 @@ unzip tasks/RxR.zip -d tasks/
 ### Training the Fed CLIP-ViL agent
 We provide scripts to train agents for them separately with our extracted CLIP features.
 
-    ```shell
+    ```
     name=agent_rxr_en_clip_vit_fedavg_new_glr12
     flag="--attn soft --train listener
       --featdropout 0.3
@@ -76,13 +76,15 @@ We provide scripts to train agents for them separately with our extracted CLIP f
     mkdir -p snap/$name
     CUDA_VISIBLE_DEVICES=0 python3 rxr_src/train.py $flag --name $name
     ```
+
     Or you could simply run the script with the same content as above(we will use this in the following):
-    ```shell
+
+    ```
     bash run/agent_rxr_clip_vit_en_fedavg.bash
     ```
     
 ### Training Fed Envdrop agent
-    ```shell
+    ```
     bash agent_rxr_resnet152_fedavg.bash
     ```
 
@@ -127,8 +129,17 @@ It will train the agent and save the snapshot under snap/agent/. Unseen success 
   bash run/bt_envdrop_fedavg.bash
   ```
 
-### Fed pre-exploration
+### Fed CLIP-ViL pre-exploration
+After train the CLIP-ViL speaker, run
+```shell
+  bash run/pre_explore_clip_vit_fedavg.bash
+```
 
+### Fed Envdrop pre-exploration
+After train the resnet speaker, run
+```shell
+  bash run/pre_explore_fedavg.bash
+  ```
 
 ## Related Links
 - CLIP-ViL: [paper](https://arxiv.org/abs/2107.06383), [code](https://github.com/clip-vil/CLIP-ViL/tree/master/CLIP-ViL-VLN)
@@ -139,6 +150,7 @@ It will train the agent and save the snapshot under snap/agent/. Unseen success 
 ## Reference
 If you use FedVLN in your research or wish to refer to the baseline results published here, 
 please use the following BibTeX entry. 
+
 
 ```shell
 @article{zhou2022fedvln,
