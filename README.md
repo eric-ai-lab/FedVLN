@@ -11,20 +11,8 @@ Python requirements: Need python3.6
 pip install -r python_requirements.txt
 ```
 
-Install Matterport3D simulators:
-```
-git submodule update --init --recursive 
-sudo apt-get install libjsoncpp-dev libepoxy-dev libglm-dev libosmesa6 libosmesa6-dev libglew-dev
-mkdir build && cd build
-cmake -DEGL_RENDERING=ON ..
-# Replace the above line with following if it doesn't work:
-#   cmake -DOSMESA_RENDERING=ON ..
-make -j8
-```
+Please refer to [this link](https://github.com/peteanderson80/Matterport3DSimulator) to install Matterport3D simulator: 
 
-Note: 
-if some error messages like `double err = cv::norm(reference_image, state->rgb, CV_L2);` pop up, please just ignore them.
-They are about test but would not affect the training agent.
 
 ## Pre-Computed Features
 ### ImageNet ResNet152
