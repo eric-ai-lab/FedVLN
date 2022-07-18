@@ -1112,7 +1112,7 @@ def train_val_augment():
         aug_length.append(len(aug_env.data[key]))
         print(len(aug_env.data[key]))
     print('min: ', min(aug_length), 'max: ', max(aug_length))
-    time.sleep(50)
+    time.sleep(5)
     # Start training
     train(train_env, tok, args.iters, val_envs=val_envs, aug_env=aug_env, val_envs_scan=val_envs_scan)
 
