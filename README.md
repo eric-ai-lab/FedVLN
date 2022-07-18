@@ -26,7 +26,7 @@ unzip ResNet-152-imagenet.zip
 ```
 
 ### CLIP Features
-Please download the CLIP-ViT features with this link:
+Please download the CLIP-ViT features for CLIP-ViL models with this link:
 ```
 wget https://nlp.cs.unc.edu/data/vln_clip/features/CLIP-ViT-B-32-views.tsv -P img_features
 ```
