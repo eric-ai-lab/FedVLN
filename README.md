@@ -55,7 +55,7 @@ unzip tasks/RxR.zip -d tasks/
 ### Training the Fed CLIP-ViL agent
 We provide scripts to train agents for them separately with our extracted CLIP features.
 
-    ```
+```
     name=agent_rxr_en_clip_vit_fedavg_new_glr12
     flag="--attn soft --train listener
       --featdropout 0.3
@@ -75,18 +75,18 @@ We provide scripts to train agents for them separately with our extracted CLIP f
 
     mkdir -p snap/$name
     CUDA_VISIBLE_DEVICES=0 python3 rxr_src/train.py $flag --name $name
-    ```
+```
 
-    Or you could simply run the script with the same content as above(we will use this in the following):
+Or you could simply run the script with the same content as above(we will use this in the following):
 
-    ```
+```
     bash run/agent_rxr_clip_vit_en_fedavg.bash
-    ```
+```
     
 ### Training Fed Envdrop agent
-    ```
+```
     bash agent_rxr_resnet152_fedavg.bash
-    ```
+```
 
 ## Training R2R
 
@@ -145,7 +145,7 @@ After train the resnet speaker, run
 - CLIP-ViL: [paper](https://arxiv.org/abs/2107.06383), [code](https://github.com/clip-vil/CLIP-ViL/tree/master/CLIP-ViL-VLN)
 - EnvDrop: [paper](https://arxiv.org/abs/1904.04195), [code](https://github.com/airsplay/R2R-EnvDrop)
 - R2R Dataset: [paper](https://arxiv.org/pdf/1711.07280.pdf), [code](https://github.com/peteanderson80/Matterport3DSimulator)
-- RxR Dataset: [paper](https://arxiv.org/abs/2010.07954), [code](https://github.com/google-research-datasets/RxR
+- RxR Dataset: [paper](https://arxiv.org/abs/2010.07954), [code](https://github.com/google-research-datasets/RxR)
 
 ## Reference
 If you use FedVLN in your research or wish to refer to the baseline results published here, 
