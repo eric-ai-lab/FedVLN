@@ -41,7 +41,7 @@ unzip tasks/RxR.zip -d tasks/
 ```
 
 ### Training the Fed CLIP-ViL agent
-We provide scripts to train agents for them separately with our extracted CLIP features.
+For training Fed CLIP-ViL agent on RxR dataset, please run
 
 ```
     name=agent_rxr_en_clip_vit_fedavg_new_glr12
