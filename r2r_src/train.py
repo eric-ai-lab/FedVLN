@@ -25,7 +25,7 @@ import wandb
 import math
 import random
 
-wandb.init(project="semantic_EnvDrop_fedavg", entity="kzhou")
+wandb.init(project="fedvln_redo", entity="kzhou")
 
 log_dir = 'snap/%s' % args.name
 if not os.path.exists(log_dir):
@@ -118,8 +118,8 @@ def train_speaker(train_env, tok, n_iters, log_every=500, val_envs={}):
 
         local_speaker = Speaker(train_env, listner, tok)
         global_speaker = Speaker(train_env, listner, tok)
-        new_global_speaker_encoder_w = global_speaker.encoder.state_dict()
-        new_global_speaker_decoder_w = global_speaker.decoder.state_dict()
+        new_global_speaker_encoder_w = copy.deepcopy(global_speaker.encoder.state_dict())
+        new_global_speaker_decoder_w = copy.deepcopy(global_speaker.decoder.state_dict())
         iter_ = 0
         # calculate frequency
         total_data_points = sum([len(train_env.data[r]) for r in train_env.data])
@@ -129,6 +129,8 @@ def train_speaker(train_env, tok, n_iters, log_every=500, val_envs={}):
             party_list_this_round = party_list_rounds[round]
             global_encoder_w = global_speaker.encoder.state_dict()
             global_decoder_w = global_speaker.decoder.state_dict()
+            local_speaker.encoder.load_state_dict(global_encoder_w)
+            local_speaker.decoder.load_state_dict(global_decoder_w)
             total_freq_round = 0
             for k in party_list_this_round:
                 total_freq_round += fed_avg_freqs[k]
@@ -155,6 +157,7 @@ def train_speaker(train_env, tok, n_iters, log_every=500, val_envs={}):
 
             # Evaluation
             eval_speaker(global_speaker, tok, val_envs, writer, iter_, best_bleu, best_loss)
+            
     else:
         party_list = [i for i in range(args.n_parties)]
         n_party_per_round = int(args.n_parties * args.sample_fraction)
@@ -436,9 +439,9 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
         total_data_points = sum([len(train_env.data[r]) for r in train_env.data])
         fed_avg_freqs = [len(train_env.data[r]) / total_data_points for r in train_env.scans_list]
         if aug_env is None:
-            comm_round = 5 * math.ceil((args.iters-iter) / (args.local_epoches * train_env.size() / args.batchSize))
+            comm_round = math.ceil((args.iters-iter) / (args.local_epoches * train_env.size() * args.sample_fraction / args.batchSize))
         else:
-            comm_round = math.ceil((args.iters-iter) / (train_env.size() / args.batchSize))
+            comm_round = math.ceil((args.iters-iter) / (args.local_epoches * train_env.size() * args.sample_fraction/ args.batchSize))
 
         for round in range(comm_round):
             listner_client.logs = defaultdict(list)
@@ -446,9 +449,9 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
             global_w_decoder = listner_global.decoder.state_dict()
             global_w_critic = listner_global.critic.state_dict()
             party_list_this_round = party_list_rounds[round]
-            new_global_w_encoder = listner_global.encoder.state_dict()
-            new_global_w_decoder = listner_global.decoder.state_dict()
-            new_global_w_critic = listner_global.critic.state_dict()
+            new_global_w_encoder = copy.deepcopy(listner_global.encoder.state_dict())
+            new_global_w_decoder = copy.deepcopy(listner_global.decoder.state_dict())
+            new_global_w_critic = copy.deepcopy(listner_global.critic.state_dict())
 
             total_freq_round = 0
             for k in party_list_this_round:
@@ -456,6 +459,7 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
             freq_this_round = [fed_avg_freqs[k] / total_freq_round for k in party_list_this_round]
 
             for idx, k in enumerate(party_list_this_round):
+                # print(global_w_encoder['lstm.weight_ih_l0'][0,:30])
                 print('party: ', k)
                 train_env.set_current_scan(k)
                 scan = train_env.scans_list[k]
@@ -835,6 +839,7 @@ def eval_model(val_envs, listner, loss_str, best_val):
         result = listner.get_results()
         score_summary, _ = evaluator.score(result)
         loss_str += ", %s " % env_name
+        # update best_val, 
         for metric, val in score_summary.items():
             if metric in ['success_rate']:
                 if env_name in best_val:
@@ -1016,8 +1021,8 @@ def train_val():
         pass
         #val_env_names.append('train')
 
-    if not args.beam:
-        val_env_names.append("train")
+    #if not args.beam:
+    #    val_env_names.append("train")
 
     val_envs = OrderedDict(
         ((split,
@@ -1112,7 +1117,7 @@ def train_val_augment():
         aug_length.append(len(aug_env.data[key]))
         print(len(aug_env.data[key]))
     print('min: ', min(aug_length), 'max: ', max(aug_length))
-    time.sleep(50)
+    time.sleep(5)
     # Start training
     train(train_env, tok, args.iters, val_envs=val_envs, aug_env=aug_env, val_envs_scan=val_envs_scan)
 
