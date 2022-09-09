@@ -14,7 +14,7 @@ from env import R2RBatch, R2RBatchScan
 from agent import Seq2SeqAgent
 from eval import Evaluation
 from param import args
-
+import copy
 import warnings
 warnings.filterwarnings("ignore")
 import random
@@ -351,9 +351,9 @@ def train(train_env, tok, n_iters, log_every=1000, val_envs={}, aug_env=None):
             global_w_decoder = listner_global.decoder.state_dict()
             global_w_critic = listner_global.critic.state_dict()
             party_list_this_round = party_list_rounds[round]
-            new_global_w_encoder = listner_global.encoder.state_dict()
-            new_global_w_decoder = listner_global.decoder.state_dict()
-            new_global_w_critic = listner_global.critic.state_dict()
+            new_global_w_encoder = copy.deepcopy(listner_global.encoder.state_dict())
+            new_global_w_decoder = copy.deepcopy(listner_global.decoder.state_dict())
+            new_global_w_critic = copy.deepcopy(listner_global.critic.state_dict())
 
             total_freq_round = 0
             for k in party_list_this_round:
