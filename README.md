@@ -1,6 +1,30 @@
-# FedVLN
+<div align="center">
 
-In our ECCV 2022 paper "[FedVLN: Privacy-preserving Federated Vision-and-Language Navigation](https://arxiv.org/abs/2203.14936)", we study the privacy problem of embodied agent and proposed a Federated Vision-and-Language Navigation algorithm for seen environment training and unseen environment pre-exploration. We achieved comparable results on seen environmen training with centralized training and improved over both centralized pre-exploration and environment-based pre-exploration. 
+<h1>FedVLN: Privacy-preserving Federated Vision-and-Language Navigation</h1>
+
+<div>
+    <a href='https://kevinz-01.github.io/' target='_blank'>Kaiwen Zhou</a>;
+    <a href='https://eric-xw.github.io/' target='_blank'>Xin Eric Wang</a>;
+</div>
+<div>
+    <sup>1</sup>University of California, Santa Cruz, USA&emsp;
+</div>
+
+<h3><strong>Accepted to <a href='https://eccv2022.ecva.net/' target='_blank'>ECCV 2022</a></strong></h3>
+
+<h3 align="center">
+  <a href="https://arxiv.org/abs/2203.14936" target='_blank'>Paper</a>
+</h3>
+</div>
+<!--## Summary-->
+<!--In this paper, we are the first to discuss data privacy concerns for vision-and-language navigation and define the privacy-preserving embodied AI problem for the two learning stages in VLN. We propose a novel federated learning framework for privacy-preserving VLN to ensure that users do not need to share their data to any party. Extensive results on R2R and RxR show that our federated learning framework not only achieves comparable results with centralized training, but also outperforms centralized and environment-based pre-exploration methods.-->
+
+## Abstract
+
+Data privacy is a central problem for embodied agents that can perceive the environment, communicate with humans, and act in the real world. While helping humans complete tasks, the agent may observe and process sensitive information of users, such as house environments, human activities, etc. In this work, we introduce privacypreserving embodied agent learning for the task of Vision-and-Language Navigation (VLN), where an embodied agent navigates house environments by following natural language instructions. We view each house environment as a local client, which shares nothing other than local updates with the cloud server and other clients, and propose a novel Federated Vision-and-Language Navigation (FedVLN) framework to protect data privacy during both training and pre-exploration. Particularly, we propose a decentralized federated training strategy to limit the data of each client to its local model training and a federated preexploration method to do partial model aggregation to improve model generalizability to unseen environments. Extensive results on R2R and RxR datasets show that, decentralized federated training achieves comparable results with centralized training while protecting seen environment privacy, and federated pre-exploration significantly outperforms centralized pre-exploration while preserving unseen environment privacy.
+
+## Architecture
+![](architecture.png)
 
 We release the reproducible code here.
 
@@ -11,20 +35,8 @@ Python requirements: Need python3.6
 pip install -r python_requirements.txt
 ```
 
-Install Matterport3D simulators:
-```
-git submodule update --init --recursive 
-sudo apt-get install libjsoncpp-dev libepoxy-dev libglm-dev libosmesa6 libosmesa6-dev libglew-dev
-mkdir build && cd build
-cmake -DEGL_RENDERING=ON ..
-# Replace the above line with following if it doesn't work:
-#   cmake -DOSMESA_RENDERING=ON ..
-make -j8
-```
+Please refer to [this link](https://github.com/peteanderson80/Matterport3DSimulator) to install Matterport3D simulator: 
 
-Note: 
-if some error messages like `double err = cv::norm(reference_image, state->rgb, CV_L2);` pop up, please just ignore them.
-They are about test but would not affect the training agent.
 
 ## Pre-Computed Features
 ### ImageNet ResNet152
@@ -38,7 +50,7 @@ unzip ResNet-152-imagenet.zip
 ```
 
 ### CLIP Features
-Please download the CLIP-ViT features with this link:
+Please download the CLIP-ViT features for CLIP-ViL models with this link:
 ```
 wget https://nlp.cs.unc.edu/data/vln_clip/features/CLIP-ViT-B-32-views.tsv -P img_features
 ```
@@ -53,9 +65,9 @@ unzip tasks/RxR.zip -d tasks/
 ```
 
 ### Training the Fed CLIP-ViL agent
-We provide scripts to train agents for them separately with our extracted CLIP features.
+For training Fed CLIP-ViL agent on RxR dataset, please run
 
-    ```
+```
     name=agent_rxr_en_clip_vit_fedavg_new_glr12
     flag="--attn soft --train listener
       --featdropout 0.3
@@ -75,18 +87,18 @@ We provide scripts to train agents for them separately with our extracted CLIP f
 
     mkdir -p snap/$name
     CUDA_VISIBLE_DEVICES=0 python3 rxr_src/train.py $flag --name $name
-    ```
+```
 
-    Or you could simply run the script with the same content as above(we will use this in the following):
+Or you could simply run the script with the same content as above(we will use this in the following):
 
-    ```
+```
     bash run/agent_rxr_clip_vit_en_fedavg.bash
-    ```
+```
     
 ### Training Fed Envdrop agent
-    ```
+```
     bash agent_rxr_resnet152_fedavg.bash
-    ```
+```
 
 ## Training R2R
 
@@ -101,7 +113,7 @@ Run the script:
 ```
 bash run/agent_clip_vit_fedavg.bash
 ```
-It will train the agent and save the snapshot under snap/agent/. Unseen success rate would be around 46%.
+It will train the agent and save the snapshot under snap/agent/. Unseen success rate would be around 53%.
 
 ### Augmented training
 - Train the speaker
@@ -145,14 +157,14 @@ After train the resnet speaker, run
 - CLIP-ViL: [paper](https://arxiv.org/abs/2107.06383), [code](https://github.com/clip-vil/CLIP-ViL/tree/master/CLIP-ViL-VLN)
 - EnvDrop: [paper](https://arxiv.org/abs/1904.04195), [code](https://github.com/airsplay/R2R-EnvDrop)
 - R2R Dataset: [paper](https://arxiv.org/pdf/1711.07280.pdf), [code](https://github.com/peteanderson80/Matterport3DSimulator)
-- RxR Dataset: [paper](https://arxiv.org/abs/2010.07954), [code](https://github.com/google-research-datasets/RxR
+- RxR Dataset: [paper](https://arxiv.org/abs/2010.07954), [code](https://github.com/google-research-datasets/RxR)
 
 ## Reference
 If you use FedVLN in your research or wish to refer to the baseline results published here, 
 please use the following BibTeX entry. 
 
 
-```shell
+```shell 
 @article{zhou2022fedvln,
   title={FedVLN: Privacy-preserving Federated Vision-and-Language Navigation},
   author = {Zhou, Kaiwen and Wang, Xin Eric},
