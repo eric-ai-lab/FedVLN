@@ -41,7 +41,7 @@ Please refer to [this link](https://github.com/peteanderson80/Matterport3DSimula
 ## Pre-Computed Features
 ### ImageNet ResNet152
 
-Download image features for environments:
+Download image features for environments for Envdrop model:
 ```
 mkdir img_features
 wget https://www.dropbox.com/s/o57kxh2mn5rkx4o/ResNet-152-imagenet.zip -P img_features/
@@ -68,7 +68,7 @@ unzip tasks/RxR.zip -d tasks/
 For training Fed CLIP-ViL agent on RxR dataset, please run
 
 ```
-    name=agent_rxr_en_clip_vit_fedavg_new_glr12
+    name=agent_rxr_en_clip_vit_fedavg_new_glr2
     flag="--attn soft --train listener
       --featdropout 0.3
       --angleFeatSize 128
@@ -78,15 +78,17 @@ For training Fed CLIP-ViL agent on RxR dataset, please run
       --feature_size 512
       --feedback sample
       --mlWeight 0.4
-      --subout max --dropout 0.5 --optim rms --lr 1e-4 --iters 200000 --maxAction 35
+      --subout max --dropout 0.5 --optim rms --lr 1e-4 --iters 400000 --maxAction 35
       --if_fed True
       --fed_alg fedavg
-      --global_lr 12
+      --global_lr 2
       --comm_round 910
-      --n_parties 60"
+      --local_epoches 5
+      --n_parties 60
+      "
 
-    mkdir -p snap/$name
-    CUDA_VISIBLE_DEVICES=0 python3 rxr_src/train.py $flag --name $name
+mkdir -p snap/$name
+CUDA_VISIBLE_DEVICES=2 python3 rxr_src/train.py $flag --name $name
 ```
 
 Or you could simply run the script with the same content as above(we will use this in the following):
