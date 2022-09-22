@@ -23,7 +23,7 @@ from tensorboardX import SummaryWriter
 import wandb
 import  math
 
-wandb.init(project="semantic_EnvDrop_fedavg", entity="kzhou")
+wandb.init(project="fedvln_", entity="kzhou")
 
 log_dir = 'snap/%s' % args.name
 if not os.path.exists(log_dir):
@@ -164,6 +164,8 @@ def eval_model(val_envs, listner, loss_str, best_val):
         wandb.log({"oe/%s" % env_name: score_summary['oracle_error']})
         wandb.log({"osr/%s" % env_name: score_summary['oracle_rate']})
         wandb.log({"spl/%s" % env_name: score_summary['spl']})
+        wandb.log({"ndtw/%s" % env_name: score_summary['ndtw']})
+        wandb.log({"cls/%s" % env_name: score_summary['cls']})
     return loss_str, best_val
 
 
@@ -418,7 +420,6 @@ def train(train_env, tok, n_iters, log_every=1000, val_envs={}, aug_env=None):
                 for metric, val in score_summary.items():
                     if metric in ['success_rate']:
                         writer.add_scalar("success_rate/%s" % env_name, val, iter)
-                        wandb.log({"success_rate/%s" % env_name: val})
                         if env_name in best_val:
                             if val > best_val[env_name]['accu']:
                                 best_val[env_name]['accu'] = val
@@ -428,13 +429,15 @@ def train(train_env, tok, n_iters, log_every=1000, val_envs={}, aug_env=None):
                                 best_val[env_name]['accu'] = val
                                 best_val[env_name]['update'] = True
                     writer.add_scalar("spl/%s" % env_name, val, iter)
-                    wandb.log({"spl/%s" % env_name: val})
                     loss_str += ', %s: %.4f' % (metric, val)
+                wandb.log({"spl/%s" % env_name: score_summary['spl']})
                 wandb.log({"sr/%s" % env_name: score_summary['success_rate']})
                 wandb.log({"tl/%s" % env_name: score_summary['lengths']})
                 wandb.log({"ne/%s" % env_name: score_summary['nav_error']})
                 wandb.log({"oe/%s" % env_name: score_summary['oracle_error']})
                 wandb.log({"osr/%s" % env_name: score_summary['oracle_rate']})
+                wandb.log({"ndtw/%s" % env_name: score_summary['ndtw']})
+                wandb.log({"cls/%s" % env_name: score_summary['cls']})
 
 
             for env_name in best_val:
@@ -642,8 +645,8 @@ def train_val():
         pass
         #val_env_names.append('train')
 
-    if not args.beam:
-        val_env_names.append("train")
+    # if not args.beam:
+    #     val_env_names.append("train")
 
     val_envs = OrderedDict(
         ((split,

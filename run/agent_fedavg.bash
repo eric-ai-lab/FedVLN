@@ -1,16 +1,16 @@
-name=agent-fedavg-glr6
+name=agent-fedavg-glr2_le18
 flag="--attn soft --train listener
       --featdropout 0.3
       --angleFeatSize 128
       --feedback sample
       --mlWeight 0.2
-      --subout max --dropout 0.5 --optim rms --lr 1e-4 --iters 80000 --maxAction 35
-      --load snap/agent-fedavg-glr6/state_dict/latest_dict
+      --features img_features/ResNet-152-imagenet.tsv
+      --subout max --dropout 0.5 --optim rms --lr 1e-4 --iters 200000 --maxAction 35
       --if_fed True
-      --comm_round 2000
+      --comm_round 365
       --sample_fraction 0.2
-      --global_lr 6
-      --local_epoches 5
+      --global_lr 2
+      --local_epoches 18
       "
 
 mkdir -p snap/$name

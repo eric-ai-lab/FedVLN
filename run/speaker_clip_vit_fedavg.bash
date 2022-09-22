@@ -1,4 +1,4 @@
-name=speaker_clip_vit_fedavg
+name=speaker_clip_vit_fedavg_lr35
 flag="--attn soft --angleFeatSize 128
       --train speaker
       --features img_features/CLIP-ViT-B-32-views.tsv
@@ -8,5 +8,4 @@ flag="--attn soft --angleFeatSize 128
       --comm_round 365
       --global_lr 1"
 mkdir -p snap/$name
-CUDA_VISIBLE_DEVICES=3 python3 r2r_src/train.py $flag --name $name
-
+CUDA_VISIBLE_DEVICES=2 python3 r2r_src/train.py $flag --name $name

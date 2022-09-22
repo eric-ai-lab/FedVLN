@@ -98,6 +98,14 @@ class Param:
         self.parser.add_argument("--global_lr", default=1, type=float)
         self.parser.add_argument("--unseen_only", default=False)
         self.parser.add_argument("--part_unseen", default=False)
+        self.parser.add_argument("--enc_only", default=False)
+        self.parser.add_argument("--glr_decrease_rate", default=1., type=float)
+
+        # moon
+        self.parser.add_argument("--model_buffer_size", default=1)
+        self.parser.add_argument("--mu", default=1.0, type=float)
+        self.parser.add_argument("--temperature", default=0.5)
+        
         self.args = self.parser.parse_args()
 
         if self.args.optim == 'rms':

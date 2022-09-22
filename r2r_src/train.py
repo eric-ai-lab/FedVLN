@@ -25,7 +25,7 @@ import wandb
 import math
 import random
 
-wandb.init(project="fedvln_redo", entity="kzhou")
+wandb.init(project="fedvln_", entity="kzhou")
 
 log_dir = 'snap/%s' % args.name
 if not os.path.exists(log_dir):
@@ -106,6 +106,8 @@ def train_speaker(train_env, tok, n_iters, log_every=500, val_envs={}):
             # Evaluation
             eval_speaker(speaker, tok, val_envs, writer, idx, best_bleu, best_loss)
     elif args.fed_alg == 'fedavg':
+        glr_schedule_freq = 20000
+        glr_schedule_thresh = glr_schedule_freq
         party_list = [i for i in range(args.n_parties)]
         n_party_per_round = int(args.n_parties * args.sample_fraction)
         party_list_rounds = []
@@ -126,6 +128,9 @@ def train_speaker(train_env, tok, n_iters, log_every=500, val_envs={}):
         fed_avg_freqs = [len(train_env.data[r]) / total_data_points for r in train_env.scans_list]
         comm_round = math.ceil((args.iters) / (train_env.size() / args.batchSize))
         for round in range(comm_round):
+            if iter_ > glr_schedule_thresh:
+                args.global_lr *= args.glr_decrease_rate
+                glr_schedule_thresh += glr_schedule_freq
             party_list_this_round = party_list_rounds[round]
             global_encoder_w = global_speaker.encoder.state_dict()
             global_decoder_w = global_speaker.decoder.state_dict()
@@ -256,7 +261,7 @@ def train_speaker(train_env, tok, n_iters, log_every=500, val_envs={}):
 def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val_envs_scan={}):
     writer = SummaryWriter(logdir=log_dir)
     start = time.time()
-    random.seed(args.seed)
+    random.seed(19)
     party_list = [i for i in range(args.n_parties)]
     n_party_per_round = int(args.n_parties * args.sample_fraction)
     party_list_rounds = []
@@ -377,10 +382,12 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
         print(loss_str)
         for idx in range(start_iter, start_iter + n_iters, log_every):
             for k, model in enumerate(unseen_agents):
+                print(k)
                 model.logs = defaultdict(list)
-                interval = min(log_every, n_iters - idx)
-                iter = idx + interval
                 aug_env.set_current_scan(k)
+                interval = math.ceil(len(aug_env.data[aug_env.current_scan]) / args.batchSize)
+                # interval = min(log_every, n_iters - idx)
+                iter = idx + interval
                 model.env = aug_env
                 args.ml_weight = 0.6
                 model.train(interval, feedback=feedback_method, speaker=speaker)
@@ -412,6 +419,8 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
 
         # listner.save(idx, os.path.join("snap", args.name, "state_dict", "LAST_iter%d" % (idx)))
     elif args.fed_alg=='fedavg' and not args.pre_explore:
+        glr_schedule_freq = 30000
+        glr_schedule_thresh = glr_schedule_freq
         start_iter = 0
         iter = 0
         listner_global = Seq2SeqAgent(train_env, "", tok, args.maxAction)
@@ -444,6 +453,9 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
             comm_round = math.ceil((args.iters-iter) / (args.local_epoches * train_env.size() * args.sample_fraction/ args.batchSize))
 
         for round in range(comm_round):
+            if iter > glr_schedule_thresh:
+                args.global_lr *= args.glr_decrease_rate
+                glr_schedule_thresh += glr_schedule_freq
             listner_client.logs = defaultdict(list)
             global_w_encoder = listner_global.encoder.state_dict()
             global_w_decoder = listner_global.decoder.state_dict()
@@ -485,7 +497,6 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
                             # Train with GT data
                             args.ml_weight = 0.2
                             listner_client.accumulate_gradient(feedback_method)
-                            listner_client.env = aug_env
                             if aug:
                                 # Train with Augmented data
                                 listner_client.env = aug_env
@@ -616,7 +627,7 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
         best_val, loss_str = val_client(val_envs_scan, unseen_models, best_val, loss_str, scan_list, args.part_unseen)
         print(loss_str)
         loss_str = ''
-
+        print('total parties: ', len(fed_avg_freqs))
         print('comm round: ', comm_round)
         if args.part_unseen:
             best_val_global = copy.deepcopy(best_val)
@@ -636,9 +647,9 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
             party_list_this_round = party_list_rounds[round]
             if args.n_parties > 61:
                 party_list_this_round += random.sample([i for i in range(61, args.n_parties)], int(11 * args.sample_fraction))
-            new_global_w_encoder = listner_global.encoder.state_dict()
-            new_global_w_decoder = listner_global.decoder.state_dict()
-            new_global_w_critic = listner_global.critic.state_dict()
+            new_global_w_encoder = copy.deepcopy(listner_global.encoder.state_dict())
+            new_global_w_decoder = copy.deepcopy(listner_global.decoder.state_dict())
+            new_global_w_critic = copy.deepcopy(listner_global.critic.state_dict())
 
             total_freq_round = 0
             for k in party_list_this_round:
@@ -650,16 +661,28 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
                 if not args.unseen_only:
                     if k < (args.n_parties - unseen_parties):
                         listner_client.encoder.load_state_dict(global_w_encoder)
-                        listner_client.decoder.load_state_dict(seen_models[k].decoder.state_dict())
-                        listner_client.critic.load_state_dict(seen_models[k].critic.state_dict())
+                        if args.enc_only:
+                            listner_client.decoder.load_state_dict(seen_models[k].decoder.state_dict())
+                            listner_client.critic.load_state_dict(seen_models[k].critic.state_dict())
+                        else:
+                            listner_client.decoder.load_state_dict(global_w_decoder)
+                            listner_client.critic.load_state_dict(global_w_critic)
                     else:
                         listner_client.encoder.load_state_dict(global_w_encoder)
-                        listner_client.decoder.load_state_dict(unseen_models[k-(args.n_parties-unseen_parties)].decoder.state_dict())
-                        listner_client.critic.load_state_dict(unseen_models[k-(args.n_parties-unseen_parties)].critic.state_dict())
+                        if args.enc_only:
+                            listner_client.decoder.load_state_dict(unseen_models[k-(args.n_parties-unseen_parties)].decoder.state_dict())
+                            listner_client.critic.load_state_dict(unseen_models[k-(args.n_parties-unseen_parties)].critic.state_dict())
+                        else:
+                            listner_client.decoder.load_state_dict(global_w_decoder)
+                            listner_client.critic.load_state_dict(global_w_critic)
                 else:
                     listner_client.encoder.load_state_dict(global_w_encoder)
-                    listner_client.decoder.load_state_dict(unseen_models[k].decoder.state_dict())
-                    listner_client.critic.load_state_dict(unseen_models[k].critic.state_dict())
+                    if args.enc_only:
+                        listner_client.decoder.load_state_dict(unseen_models[k].decoder.state_dict())
+                        listner_client.critic.load_state_dict(unseen_models[k].critic.state_dict())
+                    else:
+                        listner_client.decoder.load_state_dict(global_w_decoder)
+                        listner_client.critic.load_state_dict(global_w_critic)
                 if not args.unseen_only:
                     if k < (args.n_parties - unseen_parties):
                         train_env.set_current_scan(k)
@@ -710,16 +733,16 @@ def train(train_env, tok, n_iters, log_every=200, val_envs={}, aug_env=None, val
             log_loss(listner_client)
             # update global
             listner_global.encoder.load_state_dict(new_global_w_encoder)
-            #listner_global.decoder.load_state_dict(new_global_w_decoder)
-            #listner_global.critic.load_state_dict(new_global_w_critic)
+            listner_global.decoder.load_state_dict(new_global_w_decoder)
+            listner_global.critic.load_state_dict(new_global_w_critic)
             # extra_test(val_envs_scan, [listner_global], scan_list, val_envs)
-            loss_str = "iter {}".format(iter)
-            if args.part_unseen:
-                best_val_global = copy.deepcopy(best_val)
-                models_list = [listner_global for i in range(5)]
-                best_val_global, loss_str = val_client(val_envs_scan, models_list, best_val_global, loss_str, scan_list[-5:], args.part_unseen)
+            #loss_str = "iter {}".format(iter)
+            #if args.part_unseen:
+            #    best_val_global = copy.deepcopy(best_val)
+            #    models_list = [listner_global for i in range(5)]
+            #    best_val_global, loss_str = val_client(val_envs_scan, models_list, best_val_global, loss_str, scan_list[-5:], args.part_unseen)
 
-            loss_str, best_val = eval_model(val_envs, listner_global, loss_str, best_val)
+            #loss_str, best_val = eval_model(val_envs, listner_global, loss_str, best_val)
 
             record_file = open('./logs/' + args.name + '.txt', 'a')
             record_file.write(loss_str + '\n')
@@ -858,6 +881,8 @@ def eval_model(val_envs, listner, loss_str, best_val):
         wandb.log({"oe/%s" % env_name: score_summary['oracle_error']})
         wandb.log({"osr/%s" % env_name: score_summary['oracle_rate']})
         wandb.log({"spl/%s" % env_name: score_summary['spl']})
+        wandb.log({"ndtw/%s" % env_name: score_summary['ndtw']})
+        wandb.log({"cls/%s" % env_name: score_summary['cls']})
         # print(loss_str)
         
     return loss_str, best_val
@@ -1099,15 +1124,14 @@ def train_val_augment():
         aug_env = R2RBatch(feat_dict, batch_size=args.batchSize, splits=[aug_path], tokenizer=tok, name='aug')
 
 
-
     # Setup the validation data
     val_envs = {split: (R2RBatch(feat_dict, batch_size=args.batchSize, splits=[split],
                                  tokenizer=tok), Evaluation([split], featurized_scans, tok))
-                for split in ['train', 'val_seen', 'val_unseen']}
+                for split in ['val_seen', 'val_unseen']}
     val_envs_scan = {split: (R2RBatchScan(feat_dict, batch_size=args.batchSize, splits=[split],
                                           tokenizer=tok), Evaluation([split], featurized_scans, tok))
-                     for split in ['train', 'val_seen', 'val_unseen']}
-
+                     for split in ['val_seen', 'val_unseen']}
+    """
     train_length = []
     for key in train_env.data:
         train_length.append(len(train_env.data[key]))
@@ -1118,6 +1142,7 @@ def train_val_augment():
         print(len(aug_env.data[key]))
     print('min: ', min(aug_length), 'max: ', max(aug_length))
     time.sleep(5)
+    """
     # Start training
     train(train_env, tok, args.iters, val_envs=val_envs, aug_env=aug_env, val_envs_scan=val_envs_scan)
 
