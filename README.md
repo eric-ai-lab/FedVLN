@@ -115,7 +115,7 @@ Run the script:
 ```
 bash run/agent_clip_vit_fedavg.bash
 ```
-It will train the agent and save the snapshot under snap/agent/. Unseen success rate would be around 53%.
+It will train the agent and save the snapshot under snap/agent/. Notice that we tried global learning rate schedular, which may help the training. Unseen success rate would be around 53%.
 
 ### Augmented training
 - Train the speaker
